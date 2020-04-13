@@ -1,5 +1,6 @@
 {% load i18n static simpletags %}
-
+<script type="text/javascript" src="{% static '/admin/js/echarts/echarts.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <div id="home">
 
     <el-row class="info-card">
@@ -62,6 +63,30 @@
 
             {% endif %}
     </el-row>
+	
+	
+	    {% if "SIMPLEUI_TABLE"|get_config != False %}
+	    <el-row class="info-card">
+	
+	
+	        <el-col :span="12">
+	            <el-card class="box-card">
+	                {% block line_charts %}
+	                {% include 'admin/parts/line_charts.html' %}
+	                {% endblock %}
+	            </el-card>
+	        </el-col>
+	
+	        <el-col :span="12">
+	            <el-card class="box-card">
+	                {% block visiter %}
+	                {% include 'admin/parts/visiter_charts.html' %}
+	                {% endblock %}
+	            </el-card>
+	        </el-col>
+	    </el-row>
+	
+	    {% endif %}
 
 
     {% if "SIMPLEUI_HOME_ACTION"|get_config != False %}
