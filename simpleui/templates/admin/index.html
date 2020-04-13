@@ -317,7 +317,8 @@
 </div>
 {% block base_script %}
 <script type="text/javascript">
-    {% if home %}
+    {%
+        if home %}
     var home = {
         id: '0',
         index: '1',
@@ -326,7 +327,8 @@
         active: true,
         eid: '1'
     }
-    {% else %}
+    {% else %
+    }
     var home = {
         id: '0',
         index: '1',
@@ -334,7 +336,9 @@
         name: "{% trans 'Home' %}",
         icon: 'fas fa-home'
     };
-    {% endif %}
+    {%
+        endif %
+    }
     menus.unshift(home);
     window.language = {
         change_password: '{% trans 'Change password' %}',
