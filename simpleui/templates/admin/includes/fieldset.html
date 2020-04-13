@@ -182,24 +182,15 @@ var ImagePreview = {
     }
 };
 
-    console.log("============================")
-
-
 
     var image_document = document.getElementsByTagName("a");
-    console.log(image_document)
     for (var i = 0; i < image_document.length; i++) {
         let text_list = image_document[i].href.split('.')
-        console.log("text_list",text_list)
         let image_list = ["jpg", "png"]
         for (let j = 0; j <image_list.length ; j++) {
-            console.log("image_list[i]-====", image_list[j])
-            console.log("text_list[text_list.length-1]===",text_list[text_list.length-1])
             if (text_list[text_list.length-1] == image_list[j] )
             {
-                console.log("oho=====")
                 var herf = image_document[i].href
-                console.log(herf)
                 var image_html = image_document[i].outerHTML
                 image_document[i].outerHTML = '<div id="imgBox"><img style="width: 200px" id="img" src="' + herf + '"/></div>'
             }
